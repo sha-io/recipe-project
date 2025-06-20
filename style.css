@@ -8,6 +8,9 @@
   --border: 0 0 0 1px var(--accent-color);
 
   --section-divider: 36px 0 38px;
+
+  --subtle-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05),
+    -2px -2px 5px rgba(0, 0, 0, 0.05);
 }
 
 * {
@@ -54,6 +57,13 @@ section {
 section {
   box-shadow: 0 -1px var(--accent-color);
   padding-top: 3rem;
+}
+
+.trademark {
+  vertical-align: super;
+  margin-left: -2px;
+  font-size: 1rem;
+  font-weight: 400;
 }
 
 .tight-spacing {
@@ -136,7 +146,7 @@ section {
 }
 
 .hero-image {
-  flex: 1.25;
+  flex: 1.25 1;
 }
 
 .hero-caption h3 {
@@ -161,6 +171,7 @@ section {
 }
 
 .hero-image img {
+  box-shadow: var(--subtle-box-shadow);
   border-radius: 8px;
   object-fit: cover;
   max-height: 100%;
@@ -199,8 +210,9 @@ section {
   position: relative;
   display: flex;
   flex-direction: column;
-  border-radius: 12px;
+  border-radius: 8px;
   overflow: hidden;
+  box-shadow: var(--subtle-box-shadow);
 }
 
 .image-collection figure::after {
@@ -217,9 +229,35 @@ section {
   position: absolute;
   bottom: 0;
   z-index: 2;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  font-family: var(--secondary-font);
+  justify-content: space-between;
+  flex-direction: column;
+  letter-spacing: 0.225px;
   font-size: 1.275rem;
   color: white;
-  padding: 1rem;
+  padding: 1.275rem;
+}
+
+.image-collection .rating {
+  display: inline-flex;
+  font-size: 1.375rem;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  align-self: flex-end;
+}
+
+.image-collection .rating svg {
+  stroke: black;
+  stroke-width: 2px;
+  fill: #ffc42e;
+  flex: 1;
+  margin-top: -4px;
+  height: 1.375rem;
 }
 
 .image-collection img {
