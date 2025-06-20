@@ -9,6 +9,7 @@
 
   --section-divider: 36px 0 38px;
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -22,6 +23,11 @@ body {
   display: flex;
   flex-direction: column;
   font-family: var(--primary-font);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 button {
@@ -43,6 +49,11 @@ button {
 header,
 section {
   margin: var(--section-divider);
+}
+
+section {
+  box-shadow: 0 -1px var(--accent-color);
+  padding-top: 3rem;
 }
 
 .tight-spacing {
@@ -111,6 +122,7 @@ section {
   display: flex;
   flex: 1;
   gap: 3rem;
+  flex-wrap: wrap;
 }
 
 .hero button {
@@ -155,29 +167,66 @@ section {
 }
 
 .controls {
+  --control-font: 1.275rem;
   display: flex;
   justify-content: space-between;
   letter-spacing: -0.5px;
   font-family: var(--secondary-font);
-  font-size: 1.275rem;
+  font-size: var(--control-font);
+}
+
+.controls a {
+  color: black;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.controls a img {
+  height: var(--control-font);
+  width: var(--control-font);
 }
 
 .image-collection {
   display: flex;
   gap: 1rem;
+  flex-wrap: wrap;
   margin-top: 1rem;
 }
 
 .image-collection figure {
   flex: 1;
+  position: relative;
   display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.image-collection figure::after {
+  content: "";
+  height: 100%;
+  width: 100%;
+  top: 0;
+  z-index: 1;
+  position: absolute;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5));
+}
+
+.image-collection figcaption {
+  position: absolute;
+  bottom: 0;
+  z-index: 2;
+  font-size: 1.275rem;
+  color: white;
+  padding: 1rem;
 }
 
 .image-collection img {
   object-fit: cover;
+  position: relative;
   flex: 1;
-  height: 268px;
-  border-radius: 12px;
+  min-height: 268px;
 }
 
 footer {
