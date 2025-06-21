@@ -56,7 +56,7 @@ input {
 }
 
 .cover-image {
-  flex: 1.425;
+  flex: 1.425 2;
   box-shadow: var(--subtle-box-shadow);
 }
 
