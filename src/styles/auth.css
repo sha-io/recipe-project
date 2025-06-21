@@ -4,6 +4,9 @@
   --secondary-font: "Merriweather", serif;
   --primary-font: "Poppins", sans-serif;
   --title-font: "Neuton", serif;
+
+  --subtle-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05),
+    -2px -2px 5px rgba(0, 0, 0, 0.05);
 }
 
 * {
@@ -30,6 +33,11 @@ svg {
   max-width: 100%;
 }
 
+form,
+input {
+  font: inherit;
+}
+
 .trademark {
   vertical-align: super;
   margin-left: -2px;
@@ -48,7 +56,8 @@ svg {
 }
 
 .cover-image {
-  flex: 1;
+  flex: 1.425;
+  box-shadow: var(--subtle-box-shadow);
 }
 
 .cover-image img {
@@ -61,13 +70,71 @@ svg {
   flex: 1;
   display: flex;
   flex-direction: column;
-  align-content: center;
   justify-content: center;
-  padding: 4rem;
+  align-items: center;
+  padding: 3rem;
 }
 
-.user-details h1 {
-  margin: -3rem 0 3rem;
+.details-container {
+  width: 75%;
+}
+
+.details-container h1 {
+  margin: 1rem 0 1.5rem;
   font-size: 2rem;
   font-weight: 700;
+}
+
+.details-container h3 {
+  font-size: 1.575rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+form {
+  display: flex;
+  letter-spacing: 0.25px;
+  font-family: var(--primary-font);
+  flex-direction: column;
+  gap: 8px;
+}
+
+form button[type="submit"] {
+  text-transform: uppercase;
+  cursor: pointer;
+  letter-spacing: 1.25px;
+  font-weight: 700;
+  font-size: 0.825rem;
+  font-family: var(--primary-font);
+  color: white;
+  background-color: black;
+  padding: 0.75rem;
+  margin-bottom: 12px;
+}
+
+.form-group {
+  display: flex;
+  margin-block: 0.5rem;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.form-group label {
+  font-weight: 700;
+  font-family: var(--primary-font);
+}
+
+.form-group input {
+  padding: 0.625rem;
+}
+
+.has-account {
+  font-size: 0.875rem;
+  font-family: var(--secondary-font);
+  align-self: center;
+  letter-spacing: 0.625px;
+}
+
+.has-account a {
+  text-decoration: underline;
 }

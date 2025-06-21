@@ -14,29 +14,39 @@
     <section class="container">
       <figure class="cover-image">
         <img
-          src="../../public/crispy-spicy-chicken-wings.jpg"
+          src="../../public/table-with-food.jpg"
           alt="spicy-chicken-wings-cover-image" />
       </figure>
       <aside class="user-details">
-        <h1 class="tight-spacing">
-          <a href="./index.html">
-            Recipe.<span class="trademark">&#8482;</span>
-          </a>
-        </h1>
-        <h3>Create an Account</h3>
-        <form>
-          <label for="email"> Email Address </label>
-          <input
-            type="text"
-            id="email" />
-          <label for="password"> Password </label>
-          <input
-            type="password"
-            id="password" />
+        <div class="details-container">
+          <h1 class="tight-spacing">
+            <a href="./index.html">
+              Recipe.<span class="trademark">&#8482;</span>
+            </a>
+          </h1>
+          <h3>Create an Account</h3>
+          <form>
+            <div class="form-group">
+              <label for="email"> Email Address </label>
+              <input
+                type="email"
+                placeholder="yourname@example.com"
+                id="email" />
+            </div>
 
-          <button type="submit">Join Now</button>
-          <span>Have an account? <a href="#">Login</a></span>
-        </form>
+            <div class="form-group">
+              <label for="password"> Password </label>
+              <input
+                type="password"
+                id="password" />
+            </div>
+
+            <button type="submit">Join Now</button>
+            <span class="has-account"
+              >Have an account? <a href="#">Login</a></span
+            >
+          </form>
+        </div>
       </aside>
     </section>
   </body>
