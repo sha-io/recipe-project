@@ -25,17 +25,22 @@
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   -webkit-font-smoothing: antialiased;
   padding-inline: 56px;
   line-height: 1.5;
-  display: flex;
-  flex-direction: column;
   font-family: var(--primary-font);
 }
 
 a {
   text-decoration: none;
   color: inherit;
+}
+
+ul,
+ol {
+  list-style-position: inside;
 }
 
 button {
@@ -367,6 +372,14 @@ footer h3 {
   font-size: 1.75rem;
 }
 
+.page-cover h2 a {
+  transition: color calc(var(--lag) - 0.5s) ease;
+}
+
+.page-cover h2 a:hover {
+  color: rgba(0, 0, 0, 0.539);
+}
+
 .page-cover figure {
   display: flex;
   gap: 2rem;
@@ -409,10 +422,6 @@ footer h3 {
   display: inline-flex;
   justify-content: space-between;
 }
-/* 
-.page-cover .author strong {
-  color: ;
-} */
 
 .time {
   display: inline-flex;
@@ -424,4 +433,248 @@ footer h3 {
 .clock-icon {
   height: 1rem;
   width: 1rem;
+}
+
+/* Recipe Page */
+.recipe-highlight {
+  display: flex;
+  margin: 0;
+  margin-top: 4rem;
+  height: calc(100vh - 10rem);
+  text-align: center;
+  gap: 1.875rem;
+  box-shadow: 0 0.5px var(--accent-color);
+}
+
+.highlight-image {
+  flex: 1.25;
+}
+
+.highlight-image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.highlight-caption {
+  flex: 1;
+  padding: 1.5rem;
+  align-self: center;
+}
+
+.highlight-caption h3 {
+  font-family: var(--secondary-font);
+  font-size: 3.25rem;
+}
+
+.highlight-caption > .highlight-author {
+  text-transform: uppercase;
+  display: block;
+  font-size: 0.75rem;
+  font-family: var(--title-font);
+  letter-spacing: 0.5px;
+}
+
+.highlight-caption > .highlight-author .author-name:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.highlight-caption p {
+  padding: 0.775rem;
+  line-height: 1.75;
+  color: rgb(17, 16, 16);
+}
+
+.recipe-details {
+  --gap: 3rem;
+  --border-radius: 2px;
+  padding: 0;
+  display: flex;
+  box-shadow: none;
+}
+
+.recipe-instructions {
+  flex: 1.375;
+  padding-right: var(--gap);
+  box-shadow: 1px 0px 1px rgba(0, 0, 0, 0.08);
+  /* box-shadow: 0.5px 0 var(--accent-color); */
+}
+
+.recipe-config {
+  display: flex;
+  gap: 3rem;
+}
+
+.radio-group {
+  display: flex;
+  box-shadow: 0 0 0 1px var(--accent-color-dark);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.radio-group input {
+  appearance: none;
+  position: absolute;
+}
+
+.radio-group label:has(input[type="radio"]:checked) {
+  background-color: rgba(100, 98, 98, 0.605);
+  color: white;
+}
+
+.radio-group label {
+  flex: 1;
+  cursor: pointer;
+  padding: 0.75rem 1rem;
+}
+
+.radio-group label {
+  box-shadow: 1px 0px var(--accent-color);
+}
+
+.radio-group label span {
+  text-align: center;
+  display: block;
+}
+
+.radio-group label:last-child {
+  box-shadow: none;
+}
+
+.list-caption {
+  margin-block: 1rem;
+}
+
+.list-container {
+  margin-block: 2rem;
+}
+
+.recipe-instructions ol,
+.recipe-instructions ul {
+  list-style: none;
+}
+
+.recipe-instructions ol li::before {
+  content: attr(data-counter);
+  display: block;
+  margin-block: 0.35rem;
+  letter-spacing: 0.25px;
+  font-weight: 700;
+}
+
+.recipe-instructions ol li {
+  margin-bottom: 1.25rem;
+  line-height: 1.75;
+}
+
+.recipe-instructions ul li {
+  margin-bottom: 1rem;
+  line-height: 1.75;
+}
+
+.recipe-nutrition {
+  flex: 1;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-left: var(--gap);
+}
+
+.recipe-nutrition strong {
+  color: rgb(49, 46, 46);
+}
+
+.allergen-info {
+  --good: hsl(120, 56%, 48%);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  color: white;
+  font-weight: 600;
+  background-color: var(--good);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  padding: 0.75rem;
+  text-align: center;
+  border-radius: var(--border-radius);
+}
+
+.allergen-info svg {
+  /* stroke: var(--good); */
+  stroke: white;
+  stroke-width: 2.5px;
+  height: 1.25rem;
+  width: 1.25rem;
+}
+
+.nutrition-facts {
+  display: flex;
+  border-radius: var(--border-radius);
+  gap: 1rem;
+  justify-content: space-between;
+  padding: 1.25rem;
+  box-shadow: 0 0 0 0.2px var(--accent-color-dark),
+    0 1px 2px rgba(0, 0, 0, 0.08);
+  /* box-shadow: 0 0 0 0.5px var(--accent-color-dark); */
+  flex-wrap: wrap;
+}
+
+.nutrition-facts > span {
+  flex: 1 25%;
+}
+
+.nutrition-facts-table {
+  padding: 1.5rem;
+  letter-spacing: -0.125px;
+  color: rgb(17, 16, 16);
+  box-shadow: 0 0 0 0.2px var(--accent-color-dark),
+    0 1px 2px rgba(0, 0, 0, 0.08);
+  /* box-shadow: 0 0 0 0.5px var(--accent-color-dark); */
+}
+
+.nutrition-facts-table figcaption {
+  padding-bottom: 1rem;
+}
+
+.nutrition-facts-table p {
+  padding-block: 0.15rem;
+}
+
+.nutrition-facts-table h3 {
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+  letter-spacing: 0.35px;
+}
+
+.nutrition-facts-table table {
+  width: 100%;
+}
+
+.nutrition-facts-table table thead,
+.percent {
+  text-align: right;
+}
+
+.nutrition-facts-table :is(table :is(tr, th), figcaption) {
+  box-shadow: 0 0.5px var(--accent-color-dark);
+}
+
+.nutrition-facts-table table :is(td, th) {
+  padding-block: 0.35rem;
+}
+
+.sub-item {
+  padding-left: 2rem;
+}
+
+.weight {
+  font-size: 0.85rem;
+}
+
+.keynote {
+  display: block;
+  font-size: 0.875rem;
+  padding-top: 1.25rem;
+  color: var(--accent-color-dark);
 }
