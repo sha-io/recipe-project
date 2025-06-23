@@ -1,0 +1,15 @@
+---
+const { title, action, link, controls = false } = Astro.props;
+---
+
+<div class="controls">
+  <h3 class="uppercase heavy-bold loose-spacing">{title}</h3>
+  {
+    controls && (
+      <a href={link}>
+        {action}
+        <img src="/svgs/right-arrow.svg" alt="arrow" />
+      </a>
+    )
+  }
+</div>

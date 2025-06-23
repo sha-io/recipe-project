@@ -1,0 +1,209 @@
+---
+import recipes from "../../data/recipes";
+import BaseLayout from "../../components/BaseLayout.astro";
+
+export function getStaticPaths() {
+  return recipes.map(({ slug, ...props }) => {
+    return {
+      params: { slug: slug },
+      props: { ...props },
+    };
+  });
+}
+const props = Astro.props;
+---
+
+<BaseLayout title={props.title}>
+  <header class="recipe-highlight">
+    <div class="highlight-caption">
+      <h3>{props.title}</h3>
+      <span class="highlight-author">
+        By
+        <span class="author-name">{props.author}</span>
+      </span>
+      <p>{props.description}</p>
+    </div>
+    <figure class="highlight-image">
+      <img
+        src="/pasta-with-tomatao-basil.jpg"
+        alt="spaghetti-aglio"
+      />
+    </figure>
+  </header>
+
+  <section class="recipe-details">
+    <aside class="recipe-instructions">
+      <div class="recipe-config">
+        <div class="group-select">
+          <h6 class="group-title uppercase">Serving Size</h6>
+          <div class="radio-group">
+            <label for="half-serving">
+              <span>&half;x</span>
+              <input type="radio" name="serving" id="half-serving" />
+            </label>
+            <label for="one-serving">
+              <span>1x</span>
+              <input type="radio" name="serving" id="one-serving" checked />
+            </label>
+            <label for="double-serving">
+              <span>2x</span>
+              <input type="radio" name="serving" id="double-serving" />
+            </label>
+          </div>
+        </div>
+
+        <div class="group-select">
+          <h6 class="group-title uppercase">Unit</h6>
+          <div class="radio-group">
+            <label for="imperial">
+              <span>US</span>
+              <input type="radio" name="unit" id="imperial" checked />
+            </label>
+            <label for="metric">
+              <span>M</span>
+              <input type="radio" name="unit" id="metric" />
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="list-container">
+        <h3 class="list-caption">Ingredients</h3>
+        <ul>
+          {
+            props.ingredients.quantified.map(({ amount, unit, item }) => {
+              if (unit == "g" || unit == "oz") {
+                return (
+                  <li>
+                    {amount}
+                    {unit} {item}
+                  </li>
+                );
+              }
+              return (
+                <li>
+                  {amount} {unit} {item}
+                </li>
+              );
+            })
+          }
+          {
+            props.ingredients.unquantified.map((value) => {
+              return <li>{value}</li>;
+            })
+          }
+        </ul>
+      </div>
+
+      <div class="list-container">
+        <h3 class="list-caption">Directions</h3>
+        <ol>
+          {
+            props.steps.map((step, index) => {
+              return <li data-counter={`Step ${index + 1}`}>{step}</li>;
+            })
+          }
+        </ol>
+      </div>
+    </aside>
+    <aside class="recipe-nutrition">
+      <aside class="allergen-info">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <title></title>
+
+          <g id="Complete">
+            <g id="info-circle">
+              <g>
+                <circle
+                  cx="12"
+                  cy="12"
+                  data-name="--Circle"
+                  fill="none"
+                  id="_--Circle"
+                  r="10"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"></circle>
+
+                <line
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  x1="12"
+                  x2="12"
+                  y1="12"
+                  y2="16"></line>
+
+                <line
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  x1="12"
+                  x2="12"
+                  y1="8"
+                  y2="8"></line>
+              </g>
+            </g>
+          </g>
+        </svg>
+        There are no known allergens in this recipe.
+      </aside>
+      <aside class="nutrition-facts">
+        <span><strong>Prep Time:</strong> <br />30 mins</span>
+        <span><strong>Cook Time:</strong> <br />1hr 30 mins</span>
+        <span><strong>Total Time:</strong> <br />2hrs</span>
+        <span><strong>Freezeable:</strong> <br />Yes</span>
+        <span><strong>Difficulty:</strong> <br />Medium</span>
+        <span><strong>Servings:</strong><br />4</span>
+      </aside>
+      <figure class="nutrition-facts-table">
+        <figcaption>
+          <h3>Nutrition Facts</h3>
+          <p>Servings per recipe: 4</p>
+          <!-- <p>Calories: {props.nutrition.calories.amount}</p> -->
+        </figcaption>
+        <table>
+          <thead>
+            <tr>
+              <th colspan="2">% Daily Value*</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              Object.entries(props.nutrition).map(([_, details]) => {
+                return (
+                  <>
+                    <tr>
+                      <td>
+                        <strong>{details.label}:</strong> {details.amount}
+                      </td>
+                      <td class="percent">{details.percent}%</td>
+                    </tr>
+                    {details.subtypes &&
+                      details.subtypes.map(({ label, amount, percent }) => {
+                        return (
+                          <tr>
+                            <td class="sub-item">
+                              {label} <span class="weight">{amount}</span>
+                            </td>
+                            <td class="percent">{percent}</td>
+                          </tr>
+                        );
+                      })}
+                  </>
+                );
+              })
+            }
+          </tbody>
+        </table>
+        <small class="keynote">
+          * Percent Daily Values are based on a 2,000 calorie diet. Your daily
+          values may be higher or lower depending on your calorie needs.
+        </small>
+        <small class="keynote"
+          >** Nutrient information is not available for all ingredients. Amount
+          is based on available nutrient data.</small
+        >
+      </figure>
+    </aside>
+  </section>
+</BaseLayout>

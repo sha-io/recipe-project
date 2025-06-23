@@ -1,0 +1,109 @@
+---
+import BaseLayout from "../components/BaseLayout.astro";
+import CardCollection from "../components/CardCollection.astro";
+import ImageCard from "../components/ImageCard.astro";
+---
+
+<BaseLayout title="Recipe. — Recipes Worth Sharing, Cooking Made Easy.">
+  <header class="hero">
+    <div class="hero-caption">
+      <h3>Cook Share Enjoy</h3>
+      <h1 class="tight-spacing">
+        Recipes Worth <br />Sharing. <br />Cooking Made <br />Simple.
+      </h1>
+      <p>
+        Simple, delicious recipes for every occasion, bringing people together
+        and making cooking easy and enjoyable for all.
+      </p>
+      <button class="btn-primary">
+        <a href="sign-up.html">Get Started</a>
+        <svg
+          fill="#FFFFFFFF"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            id="primary"
+            d="M3,12H21m-3,3,3-3L18,9"
+            style="
+                fill: none;
+                stroke: rgb(255, 255, 255);
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                stroke-width: 1.5;
+              "
+          ></path>
+        </svg>
+      </button>
+    </div>
+
+    <figure class="hero-image">
+      <img
+        src="/pasta-with-tomatao-basil.jpg"
+        alt="image-of-food"
+      />
+    </figure>
+  </header>
+
+    <CardCollection
+      controls={true}
+      title="Trending"
+      actionName="See all"
+      link="/trending"
+    >
+      <ImageCard
+        name="Filet Mignon with Red Wine Reduction"
+        rating="4.8"
+        link="#"
+        imgSrc="/nachos.jpg"
+        alt="image-of-food"
+      />
+
+      <ImageCard
+        name="Frisée Salad with Poached Egg and Lardon"
+        rating="4.8"
+        link="#"
+        imgSrc="/spring-rolls.jpg"
+        alt="image-of-food"
+      />
+
+      <ImageCard
+        name="Chateaubriand Steak with Béarnaise Sauce"
+        rating="4.8"
+        link="#"
+        imgSrc="/beef-stew.jpg"
+        alt="image-of-food"
+      />
+    </CardCollection>
+
+    <CardCollection
+    title="Most Loved"
+      controls={true}
+      link="/most-loved"
+      actionName="See all"
+    >
+      <ImageCard
+        name="Filet Mignon with Red Wine Reduction"
+        rating="4.8"
+        link="#"
+        imgSrc="/nachos.jpg"
+        alt="image-of-food"
+      />
+
+      <ImageCard
+        name="Frisée Salad with Poached Egg and Lardon"
+        rating="4.8"
+        link="#"
+        imgSrc="/spring-rolls.jpg"
+        alt="image-of-food"
+      />
+
+      <ImageCard
+        name="Chateaubriand Steak with Béarnaise Sauce"
+        rating="4.8"
+        link="#"
+        imgSrc="/beef-stew.jpg"
+        alt="image-of-food"
+      />
+    </CardCollection>
+</BaseLayout>

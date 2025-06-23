@@ -5,8 +5,8 @@
   --primary-font: "Poppins", sans-serif;
   --title-font: "Neuton", serif;
 
-  --subtle-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05),
-    -2px -2px 5px rgba(0, 0, 0, 0.05);
+  --subtle-box-shadow:
+    2px 2px 5px rgba(0, 0, 0, 0.05), -2px -2px 5px rgba(0, 0, 0, 0.05);
 }
 
 * {

@@ -1,0 +1,16 @@
+---
+const { controls = false, title, actionName, link} = Astro.props;
+import CardControls from "./CardControls.astro";
+---
+
+<section>
+  {
+    controls && (
+      <CardControls title={title} action={actionName} controls={controls} link={link}/>
+    )
+  }
+  {!controls && <CardControls title={title} />}
+  <div class="image-collection">
+    <slot />
+  </div>
+</section>

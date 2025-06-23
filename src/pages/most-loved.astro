@@ -1,0 +1,73 @@
+---
+import BaseLayout from "../components/BaseLayout.astro";
+import CardCollection from "../components/CardCollection.astro";
+import ImageCard from "../components/ImageCard.astro";
+import PageHeader from "../components/PageHeader.astro";
+---
+
+<BaseLayout title="Most Loved">
+  <PageHeader
+  heading="Most Loved"
+    imgSrc="pasta-with-tomatao-basil.jpg"
+    title="Spaghetti Aglio e Olio"
+    description=`
+            Spaghetti Aglio e Olio is a simple yet flavorful Italian pasta dish
+            made with garlic, olive oil, and red pepper flakes. Quick to prepare
+            and deeply satisfying, it’s a go-to recipe for busy nights or when
+            you want comfort food with minimal ingredients. The garlic-infused
+            oil and subtle heat make every bite rich, bold, and delicious.`
+    author="Maria Rosé"
+    duration="30 Minutes"
+  />
+  <CardCollection title="Vegetatrian">
+    <ImageCard
+      name="Filet Mignon with Red Wine Reduction"
+      rating="4.8"
+      link="#"
+      imgSrc="/nachos.jpg"
+      alt="image-of-food"
+    />
+
+    <ImageCard
+      name="Frisée Salad with Poached Egg and Lardon"
+      rating="4.8"
+      link="#"
+      imgSrc="/spring-rolls.jpg"
+      alt="image-of-food"
+    />
+
+    <ImageCard
+      name="Chateaubriand Steak with Béarnaise Sauce"
+      rating="4.8"
+      link="#"
+      imgSrc="/beef-stew.jpg"
+      alt="image-of-food"
+    />
+  </CardCollection>
+
+  <CardCollection title="Easy to Cook">
+    <ImageCard
+      name="Filet Mignon with Red Wine Reduction"
+      rating="4.8"
+      link="#"
+      imgSrc="/nachos.jpg"
+      alt="image-of-food"
+    />
+
+    <ImageCard
+      name="Frisée Salad with Poached Egg and Lardon"
+      rating="4.8"
+      link="#"
+      imgSrc="/spring-rolls.jpg"
+      alt="image-of-food"
+    />
+
+    <ImageCard
+      name="Chateaubriand Steak with Béarnaise Sauce"
+      rating="4.8"
+      link="#"
+      imgSrc="/beef-stew.jpg"
+      alt="image-of-food"
+    />
+  </CardCollection>
+</BaseLayout>
