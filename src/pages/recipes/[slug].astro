@@ -1,6 +1,9 @@
 ---
 import recipes from "../../data/recipes";
-import BaseLayout from "../../components/BaseLayout.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import NutritionTable from "../../components/NutritionTable.astro";
+import Nutrient from "../../components/Nutrient.astro";
+import RecipeHighlight from "../../components/RecipeHighlight.astro";
 
 export function getStaticPaths() {
   return recipes.map(({ slug, ...props }) => {
@@ -11,25 +14,16 @@ export function getStaticPaths() {
   });
 }
 const props = Astro.props;
+const renderNutrition = Object.entries(props.nutrition);
 ---
 
 <BaseLayout title={props.title}>
-  <header class="recipe-highlight">
-    <div class="highlight-caption">
-      <h3>{props.title}</h3>
-      <span class="highlight-author">
-        By
-        <span class="author-name">{props.author}</span>
-      </span>
-      <p>{props.description}</p>
-    </div>
-    <figure class="highlight-image">
-      <img
-        src="/pasta-with-tomatao-basil.jpg"
-        alt="spaghetti-aglio"
-      />
-    </figure>
-  </header>
+  <RecipeHighlight
+    title={props.title}
+    author={props.author}
+    description={props.description}
+    imgSrc={props.imgSrc}
+  />
 
   <section class="recipe-details">
     <aside class="recipe-instructions">
@@ -107,46 +101,6 @@ const props = Astro.props;
       </div>
     </aside>
     <aside class="recipe-nutrition">
-      <aside class="allergen-info">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <title></title>
-
-          <g id="Complete">
-            <g id="info-circle">
-              <g>
-                <circle
-                  cx="12"
-                  cy="12"
-                  data-name="--Circle"
-                  fill="none"
-                  id="_--Circle"
-                  r="10"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"></circle>
-
-                <line
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  x1="12"
-                  x2="12"
-                  y1="12"
-                  y2="16"></line>
-
-                <line
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  x1="12"
-                  x2="12"
-                  y1="8"
-                  y2="8"></line>
-              </g>
-            </g>
-          </g>
-        </svg>
-        There are no known allergens in this recipe.
-      </aside>
       <aside class="nutrition-facts">
         <span><strong>Prep Time:</strong> <br />30 mins</span>
         <span><strong>Cook Time:</strong> <br />1hr 30 mins</span>
@@ -155,55 +109,33 @@ const props = Astro.props;
         <span><strong>Difficulty:</strong> <br />Medium</span>
         <span><strong>Servings:</strong><br />4</span>
       </aside>
-      <figure class="nutrition-facts-table">
-        <figcaption>
-          <h3>Nutrition Facts</h3>
-          <p>Servings per recipe: 4</p>
-          <!-- <p>Calories: {props.nutrition.calories.amount}</p> -->
-        </figcaption>
-        <table>
-          <thead>
-            <tr>
-              <th colspan="2">% Daily Value*</th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              Object.entries(props.nutrition).map(([_, details]) => {
-                return (
-                  <>
-                    <tr>
-                      <td>
-                        <strong>{details.label}:</strong> {details.amount}
-                      </td>
-                      <td class="percent">{details.percent}%</td>
-                    </tr>
-                    {details.subtypes &&
-                      details.subtypes.map(({ label, amount, percent }) => {
-                        return (
-                          <tr>
-                            <td class="sub-item">
-                              {label} <span class="weight">{amount}</span>
-                            </td>
-                            <td class="percent">{percent}</td>
-                          </tr>
-                        );
-                      })}
-                  </>
-                );
-              })
-            }
-          </tbody>
-        </table>
-        <small class="keynote">
-          * Percent Daily Values are based on a 2,000 calorie diet. Your daily
-          values may be higher or lower depending on your calorie needs.
-        </small>
-        <small class="keynote"
-          >** Nutrient information is not available for all ingredients. Amount
-          is based on available nutrient data.</small
-        >
-      </figure>
+
+      <NutritionTable servings="4" calories={props.calories}>
+        {
+          renderNutrition.map(([key, details]) => {
+            return (
+              <>
+                <Nutrient
+                  label={details.label}
+                  amount={details.amount}
+                  percent={details.percent}
+                />
+                {details.subtypes &&
+                  details.subtypes.map(({ label, amount, percent }) => {
+                    return (
+                      <Nutrient
+                        label={label}
+                        amount={amount}
+                        percent={percent}
+                        type="sub"
+                      />
+                    );
+                  })}
+              </>
+            );
+          })
+        }
+      </NutritionTable>
     </aside>
   </section>
 </BaseLayout>

@@ -1,0 +1,27 @@
+---
+const { label, amount, percent, type = "main" } = Astro.props;
+---
+
+{
+  type.toLowerCase() === "main" && (
+    <tr>
+      <td>
+        <strong>{label}: </strong>
+        {amount}
+      </td>
+      <td class="percent">{percent}%</td>
+    </tr>
+  )
+}
+
+{
+  type.toLowerCase() === "sub" && (
+    <tr>
+      <td class="sub-item">
+        {label} {` `}
+        <span class="weight">{amount}</span>
+      </td>
+      <td class="percent">{percent}%</td>
+    </tr>
+  )
+}

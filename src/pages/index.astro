@@ -1,7 +1,10 @@
 ---
-import BaseLayout from "../components/BaseLayout.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 import CardCollection from "../components/CardCollection.astro";
 import ImageCard from "../components/ImageCard.astro";
+
+import recipes from "../data/recipes";
+const slicedRecipes = recipes.slice(1, 4);
 ---
 
 <BaseLayout title="Recipe. — Recipes Worth Sharing, Cooking Made Easy.">
@@ -38,72 +41,47 @@ import ImageCard from "../components/ImageCard.astro";
     </div>
 
     <figure class="hero-image">
-      <img
-        src="/pasta-with-tomatao-basil.jpg"
-        alt="image-of-food"
-      />
+      <img src="/pasta-with-tomatao-basil.jpg" alt="image-of-food" />
     </figure>
   </header>
 
-    <CardCollection
-      controls={true}
-      title="Trending"
-      actionName="See all"
-      link="/trending"
-    >
-      <ImageCard
-        name="Filet Mignon with Red Wine Reduction"
-        rating="4.8"
-        link="#"
-        imgSrc="/nachos.jpg"
-        alt="image-of-food"
-      />
+  <CardCollection
+    controls={true}
+    title="Trending"
+    actionName="See all"
+    link="/trending"
+  >
+    {
+      slicedRecipes.map((recipe) => {
+        return (
+          <ImageCard
+            name={recipe.title}
+            link={`/recipes/${recipe.slug}`}
+            imgSrc={recipe.imgSrc}
+            rating={recipe.rating}
+          />
+        );
+      })
+    }
+  </CardCollection>
 
-      <ImageCard
-        name="Frisée Salad with Poached Egg and Lardon"
-        rating="4.8"
-        link="#"
-        imgSrc="/spring-rolls.jpg"
-        alt="image-of-food"
-      />
-
-      <ImageCard
-        name="Chateaubriand Steak with Béarnaise Sauce"
-        rating="4.8"
-        link="#"
-        imgSrc="/beef-stew.jpg"
-        alt="image-of-food"
-      />
-    </CardCollection>
-
-    <CardCollection
+  <CardCollection
     title="Most Loved"
-      controls={true}
-      link="/most-loved"
-      actionName="See all"
-    >
-      <ImageCard
-        name="Filet Mignon with Red Wine Reduction"
-        rating="4.8"
-        link="#"
-        imgSrc="/nachos.jpg"
-        alt="image-of-food"
-      />
-
-      <ImageCard
-        name="Frisée Salad with Poached Egg and Lardon"
-        rating="4.8"
-        link="#"
-        imgSrc="/spring-rolls.jpg"
-        alt="image-of-food"
-      />
-
-      <ImageCard
-        name="Chateaubriand Steak with Béarnaise Sauce"
-        rating="4.8"
-        link="#"
-        imgSrc="/beef-stew.jpg"
-        alt="image-of-food"
-      />
-    </CardCollection>
+    controls={true}
+    link="/most-loved"
+    actionName="See all"
+  >
+    {
+      slicedRecipes.map((recipe) => {
+        return (
+          <ImageCard
+            name={recipe.title}
+            link={`/recipes/${recipe.slug}`}
+            imgSrc={recipe.imgSrc}
+            rating={recipe.rating}
+          />
+        );
+      })
+    }
+  </CardCollection>
 </BaseLayout>

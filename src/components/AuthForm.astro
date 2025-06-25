@@ -25,14 +25,14 @@ const { header, btnName, isLogin } = Astro.props;
       {
         !isLogin && (
           <span class="has-account">
-            Have an account? <a href="/login">Login</a>
+            Have an account? <a href="/auth/login">Login</a>
           </span>
         )
       }
       {
         isLogin && (
           <span class="has-account">
-            Don't have an account? <a href="/sign-up">Sign up</a>
+            Don't have an account? <a href="/auth/sign-up">Sign up</a>
           </span>
         )
       }

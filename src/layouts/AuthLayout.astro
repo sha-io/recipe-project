@@ -1,7 +1,6 @@
 ---
-import type { ACTION_ERROR_CODES } from "astro:actions";
 import "../styles/auth.css";
-import AuthForm from "./AuthForm.astro";
+const { title } = Astro.props;
 ---
 
 <!doctype html>
@@ -10,17 +9,14 @@ import AuthForm from "./AuthForm.astro";
     <link rel="stylesheet" href="../styles/auth.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sign Up</title>
+    <title>{title}</title>
   </head>
   <body>
     <section class="container">
       <figure class="cover-image">
-        <img
-          src="/table-with-food.jpg"
-          alt="spicy-chicken-wings-cover-image"
-        />
+        <img src="/table-with-food.jpg" alt="spicy-chicken-wings-cover-image" />
       </figure>
-      <AuthForm {...Astro.props} />
+      <slot />
     </section>
   </body>
 </html>

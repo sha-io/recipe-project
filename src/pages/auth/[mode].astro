@@ -1,0 +1,37 @@
+---
+import AuthForm from "../../components/AuthForm.astro";
+import AuthLayout from "../../Layouts/AuthLayout.astro";
+
+export function getStaticPaths() {
+  return [
+    {
+      params: {
+        mode: "login",
+      },
+      props: {
+        title: "Login",
+        header: "Welcome Back!",
+        btnName: "Login",
+        mode: true,
+      },
+    },
+    {
+      params: {
+        mode: "sign-up",
+      },
+      props: {
+        title: "Login",
+        header: "Welcome Back!",
+        btnName: "Login",
+        mode: false,
+      },
+    },
+  ];
+}
+
+const { title, header, btnName, mode } = Astro.props;
+---
+
+<AuthLayout title={title}>
+  <AuthForm header={header} btnName={btnName} isLogin={mode} />
+</AuthLayout>

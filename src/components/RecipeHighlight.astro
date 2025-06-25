@@ -1,0 +1,17 @@
+---
+const { title, imgSrc, author, alt, description } = Astro.props;
+---
+
+<header class="recipe-highlight">
+  <div class="highlight-caption">
+    <h3>{title}</h3>
+    <span class="highlight-author">
+      By
+      <span class="author-name">{author}</span>
+    </span>
+    <p>{description}</p>
+  </div>
+  <figure class="highlight-image">
+    <img src={imgSrc} alt={alt} />
+  </figure>
+</header>

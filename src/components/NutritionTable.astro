@@ -1,0 +1,29 @@
+---
+const { servings, calories } = Astro.props;
+---
+
+<figure class="nutrition-facts-table">
+  <figcaption>
+    <h3>Nutrition Facts</h3>
+    <p>Servings per recipe: {servings}</p>
+    <p>Calories: {calories}</p>
+  </figcaption>
+  <table>
+    <thead>
+      <tr>
+        <th colspan="2">% Daily Value*</th>
+      </tr>
+    </thead>
+    <tbody>
+      <slot />
+    </tbody>
+  </table>
+  <small class="keynote">
+    * Percent Daily Values are based on a 2,000 calorie diet. Your daily values
+    may be higher or lower depending on your calorie needs.
+  </small>
+  <small class="keynote">
+    ** Nutrient information is not available for all ingredients. Amount is
+    based on available nutrient data.
+  </small>
+</figure>
