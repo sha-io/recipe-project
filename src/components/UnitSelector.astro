@@ -1,0 +1,27 @@
+---
+const { value } = Astro.props;
+---
+
+<div class="group-select">
+  <h6 class="group-title uppercase">Unit</h6>
+  <div class="radio-group">
+    <label for="imperial">
+      <span>US</span>
+      <input
+        type="radio"
+        name="unit"
+        id="imperial"
+        checked={value === "imperial"}
+      />
+    </label>
+    <label for="metric">
+      <span>M</span>
+      <input
+        type="radio"
+        name="unit"
+        id="metric"
+        checked={value === "metric"}
+      />
+    </label>
+  </div>
+</div>

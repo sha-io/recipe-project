@@ -1,0 +1,36 @@
+---
+const { value = 1 } = Astro.props;
+---
+
+<div class="group-select">
+  <h6 class="group-title uppercase">Serving Size</h6>
+  <div class="radio-group">
+    <label for="half-serving">
+      <span>&half;x</span>
+      <input
+        type="radio"
+        name="serving"
+        id="half-serving"
+        checked={value == 0.5}
+      />
+    </label>
+    <label for="one-serving">
+      <span>1x</span>
+      <input
+        type="radio"
+        name="serving"
+        id="one-serving"
+        checked={value == 1}
+      />
+    </label>
+    <label for="double-serving">
+      <span>2x</span>
+      <input
+        type="radio"
+        name="serving"
+        id="double-serving"
+        checked={value == 2}
+      />
+    </label>
+  </div>
+</div>

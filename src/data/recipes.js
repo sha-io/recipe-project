@@ -6,6 +6,14 @@ export const recipes = [
     calories: "288 kcal",
     rating: 4.8,
     author: "Maria Rosé",
+    overview: {
+      prepTime: "10 mins",
+      cookTime: "15 mins",
+      totalTime: "25 mins",
+      freezable: "No",
+      difficulty: "Easy",
+      servings: "2",
+    },
     description: `Spaghetti Aglio e Olio is a classic Italian pasta dish made with just a
         few ingredients: garlic, olive oil, and red pepper flakes. It's simple
         to prepare yet packed with rich, bold flavors and a subtle kick of heat.`,
@@ -111,6 +119,14 @@ export const recipes = [
       freeOf: ["gluten", "nuts"],
       notes: "May contain dairy depending on butter used in sauce",
     },
+    overview: {
+      prepTime: "10 mins",
+      cookTime: "20 mins",
+      totalTime: "30 mins",
+      freezable: "No",
+      difficulty: "Medium",
+      servings: "2",
+    },
     nutrition: {
       fat: {
         label: "Total Fat",
@@ -189,6 +205,14 @@ export const recipes = [
       freeOf: ["nuts"],
       notes: "May contain dairy depending on vinaigrette or bacon preparation",
     },
+    overview: {
+      prepTime: "15 mins",
+      cookTime: "10 mins",
+      totalTime: "25 mins",
+      freezable: "No",
+      difficulty: "Medium",
+      servings: "2",
+    },
     nutrition: {
       fat: {
         label: "Total Fat",
@@ -265,6 +289,14 @@ export const recipes = [
       contains: ["eggs", "dairy"],
       freeOf: ["nuts"],
       notes: "Béarnaise sauce is made with butter and egg yolks",
+    },
+    overview: {
+      prepTime: "20 mins",
+      cookTime: "30 mins",
+      totalTime: "50 mins",
+      freezable: "No",
+      difficulty: "Hard",
+      servings: "2–3",
     },
     nutrition: {
       fat: {

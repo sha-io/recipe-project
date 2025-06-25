@@ -1,0 +1,13 @@
+---
+const { prepTime, cookTime, totalTime, freezable, difficulty, servings } =
+  Astro.props;
+---
+
+<aside class="nutrition-facts">
+  <span><strong>Prep Time:</strong> <br />{prepTime}</span>
+  <span><strong>Cook Time:</strong> <br />{cookTime}</span>
+  <span><strong>Total Time:</strong> <br />{totalTime}</span>
+  <span><strong>Freezeable:</strong> <br />{freezable}</span>
+  <span><strong>Difficulty:</strong> <br />{difficulty}</span>
+  <span><strong>Servings:</strong><br />{servings}</span>
+</aside>
