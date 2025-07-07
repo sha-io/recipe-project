@@ -56,7 +56,7 @@ input {
 }
 
 .cover-image {
-  flex: 1.425 2;
+  flex: 1.25 2;
   box-shadow: var(--subtle-box-shadow);
 }
 
@@ -128,6 +128,20 @@ form button[type="submit"] {
   padding: 0.625rem;
 }
 
+.input-group {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+
+.input-group input {
+  width: 100%;
+}
+
+.input-group input::placeholder {
+  font-weight: 400;
+}
+
 .has-account {
   font-size: 0.875rem;
   font-family: var(--secondary-font);
@@ -137,4 +151,23 @@ form button[type="submit"] {
 
 .has-account a {
   text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .container {
+    justify-content: center;
+  }
+
+  .cover-image {
+    display: none;
+  }
+
+  .user-details {
+    max-width: 526px;
+    padding: 1rem;
+  }
+
+  input::placeholder {
+    font-size: 0.85rem;
+  }
 }

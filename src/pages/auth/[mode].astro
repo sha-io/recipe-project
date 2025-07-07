@@ -12,7 +12,7 @@ export function getStaticPaths() {
         title: "Login",
         header: "Welcome Back!",
         btnName: "Login",
-        mode: true,
+        isLogin: true,
       },
     },
     {
@@ -20,18 +20,18 @@ export function getStaticPaths() {
         mode: "sign-up",
       },
       props: {
-        title: "Login",
-        header: "Welcome Back!",
+        title: "Sign Up",
+        header: "Create an Account",
         btnName: "Join Now",
-        mode: false,
+        isLogin: false,
       },
     },
   ];
 }
 
-const { title, header, btnName, mode } = Astro.props;
+const { title, header, btnName, isLogin } = Astro.props;
 ---
 
 <AuthLayout title={title}>
-  <AuthForm header={header} btnName={btnName} isLogin={mode} />
+  <AuthForm header={header} btnName={btnName} isLogin={isLogin} />
 </AuthLayout>
