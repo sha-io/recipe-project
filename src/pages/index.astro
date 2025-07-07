@@ -11,9 +11,7 @@ const slicedRecipes = recipes.slice(1, 4);
   <header class="hero">
     <div class="hero-caption">
       <h3>Cook Share Enjoy</h3>
-      <h1 class="tight-spacing">
-        Recipes Worth Sharing. Cooking Made Simple.
-      </h1>
+      <h1 class="tight-spacing">Recipes Worth Sharing. Cooking Made Simple.</h1>
       <p>
         Simple, delicious recipes for every occasion, bringing people together
         and making cooking easy and enjoyable for all.
@@ -23,8 +21,7 @@ const slicedRecipes = recipes.slice(1, 4);
         <svg
           fill="#FFFFFFFF"
           viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
+          xmlns="http://www.w3.org/2000/svg">
           <path
             id="primary"
             d="M3,12H21m-3,3,3-3L18,9"
@@ -41,7 +38,10 @@ const slicedRecipes = recipes.slice(1, 4);
     </div>
 
     <figure class="hero-image">
-      <img src="/pasta-with-tomatao-basil.jpg" alt="image-of-food" />
+      <img
+        src="/pasta-with-tomatao-basil.jpg"
+        alt="image-of-food"
+      />
     </figure>
   </header>
 
@@ -49,13 +49,13 @@ const slicedRecipes = recipes.slice(1, 4);
     controls={true}
     title="Trending"
     actionName="See all"
-    link="/trending"
-  >
+    link="/trending">
     {
       slicedRecipes.map((recipe) => {
         return (
           <ImageCard
             name={recipe.title}
+            alt={recipe.alt}
             link={`/recipes/${recipe.slug}`}
             imgSrc={recipe.imgSrc}
             rating={recipe.rating}
@@ -69,13 +69,13 @@ const slicedRecipes = recipes.slice(1, 4);
     title="Most Loved"
     controls={true}
     link="/most-loved"
-    actionName="See all"
-  >
+    actionName="See all">
     {
       slicedRecipes.map((recipe) => {
         return (
           <ImageCard
             name={recipe.title}
+            alt={recipe.alt}
             link={`/recipes/${recipe.slug}`}
             imgSrc={recipe.imgSrc}
             rating={recipe.rating}
