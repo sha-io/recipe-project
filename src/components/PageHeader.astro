@@ -1,6 +1,15 @@
 ---
-const { title, description, alt, heading, author, duration, link, imgSrc } =
-  Astro.props;
+const {
+  title,
+  description,
+  alt,
+  heading,
+  author,
+  duration,
+  link,
+  imgSrc,
+  loading = "lazy",
+} = Astro.props;
 ---
 
 <header class="page-cover">
@@ -9,6 +18,7 @@ const { title, description, alt, heading, author, duration, link, imgSrc } =
     <img
       src={imgSrc}
       alt={alt}
+      loading={loading}
     />
     <figcaption>
       <h3 class="uppercase">Recipe of the day</h3>

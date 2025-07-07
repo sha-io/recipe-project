@@ -27,6 +27,7 @@ const renderNutrition = Object.entries(props.nutrition);
     author={props.author}
     description={props.description}
     imgSrc={props.imgSrc}
+    alt={props.alt}
   />
 
   <section class="recipe-details">
@@ -84,7 +85,9 @@ const renderNutrition = Object.entries(props.nutrition);
         difficulty={props.overview.difficulty}
         servings={props.overview.servings}
       />
-      <NutritionTable servings="4" calories={props.calories}>
+      <NutritionTable
+        servings="4"
+        calories={props.calories}>
         {
           renderNutrition.map(([key, details]) => {
             return (
