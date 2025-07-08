@@ -33,5 +33,10 @@ const { title, header, btnName, isLogin } = Astro.props;
 ---
 
 <AuthLayout title={title}>
-  <AuthForm header={header} btnName={btnName} isLogin={isLogin} />
+  <AuthForm
+    action="/"
+    header={header}
+    btnName={btnName}
+    isLogin={isLogin}
+  />
 </AuthLayout>

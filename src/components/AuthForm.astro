@@ -1,5 +1,5 @@
 ---
-const { header, btnName, isLogin } = Astro.props;
+const { header, btnName, isLogin, action } = Astro.props;
 ---
 
 <aside class="user-details">
@@ -10,7 +10,7 @@ const { header, btnName, isLogin } = Astro.props;
       </a>
     </h1>
     <h3>{header}</h3>
-    <form>
+    <form action={action}>
       {
         !isLogin && (
           <div class="form-group">
